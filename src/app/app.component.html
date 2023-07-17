@@ -1,3 +1,8 @@
-<div *ngIf="this.dataFetched">
+<div class="headerBox">
+  <h1>COVID Watch 2.0</h1>
+  <p>powered by disease.sh</p>
+</div>
+
+<div *ngIf="this.dataFetched" class="chartBox">
   <app-bar-chart [chartData]="data"></app-bar-chart>
 </div>
