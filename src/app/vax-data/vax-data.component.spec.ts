@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LineChartComponent } from './line-chart.component';
+import { VaxDataComponent } from './vax-data.component';
 
-describe('LineChartComponent', () => {
-  let component: LineChartComponent;
-  let fixture: ComponentFixture<LineChartComponent>;
+describe('VaxDataComponent', () => {
+  let component: VaxDataComponent;
+  let fixture: ComponentFixture<VaxDataComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LineChartComponent]
+      declarations: [VaxDataComponent]
     });
-    fixture = TestBed.createComponent(LineChartComponent);
+    fixture = TestBed.createComponent(VaxDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,10 +6,10 @@ import axios from 'axios';
 })
 
 export class DataService {
-    private apiUrl = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
+    // private apiUrl = "https://disease.sh/v3/covid-19/historical/all?lastdays=all";
 
-    getData() {
-        return axios.get(`${this.apiUrl}`)
+    getData(apiUrl: string) {
+        return axios.get(`${apiUrl}`)
             .then(response => response.data)
             .catch(error => {
                 console.error('Error:', error);

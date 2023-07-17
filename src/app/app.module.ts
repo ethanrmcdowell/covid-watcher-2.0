@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { LineChartComponent } from './line-chart/line-chart.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UsDataComponent } from './us-data/us-data.component';
+import { VaxDataComponent } from './vax-data/vax-data.component';
+import { GlobalDataComponent } from './global-data/global-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LineChartComponent,
-    BarChartComponent
+    UsDataComponent,
+    VaxDataComponent,
+    GlobalDataComponent
   ],
   imports: [
     BrowserModule,

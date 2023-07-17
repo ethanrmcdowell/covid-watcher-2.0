@@ -30,6 +30,10 @@
   </button>
 </div>
 
-<div *ngIf="this.dataFetched" class="chartBox">
-  <app-bar-chart [chartData]="data"></app-bar-chart>
+<div *ngIf="this.dataFetched && this.tabSelected === 1" class="chartBox">
+  <app-global-data [chartData]="data"></app-global-data>
+</div>
+
+<div *ngIf="this.dataFetched && this.tabSelected === 2" class="chartBox">
+  <app-us-data [chartData]="data"></app-us-data>
 </div>

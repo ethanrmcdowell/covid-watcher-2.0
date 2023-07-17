@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
-  selector: 'app-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.css']
+  selector: 'app-global-data',
+  templateUrl: './global-data.component.html',
+  styleUrls: ['./global-data.component.css']
 })
-export class BarChartComponent {
+export class GlobalDataComponent {
   public chart: any;
   @Input() chartData: any;
   dates: string[] = [];
@@ -15,12 +15,13 @@ export class BarChartComponent {
 
   createChart(){
     this.chart = new Chart("MyChart", {
-      type: 'line', //this denotes tha type of chart
-
-      data: {// values on X-Axis
+      type: 'line',
+      data: {
+        // dates along x-axis
         labels: this.dates, 
 	       datasets: [
           {
+            // case numbers along y-axis
             label: "Total Cases",
             data: this.caseNumbers,
             backgroundColor: 'limegreen'
@@ -37,8 +38,7 @@ export class BarChartComponent {
     this.dates = Object.keys(this.chartData.cases);;
     this.caseNumbers = Object.values(this.chartData.cases);
 
-    console.log("dates:", this.dates);
-    console.log("cases:", this.caseNumbers);
+    console.log("global data ->", this.chartData);
 
     this.createChart();
   }
