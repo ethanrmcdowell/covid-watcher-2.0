@@ -1,1 +1,3 @@
-<app-bar-chart></app-bar-chart>
+<div *ngIf="this.dataFetched">
+  <app-bar-chart [chartData]="data"></app-bar-chart>
+</div>

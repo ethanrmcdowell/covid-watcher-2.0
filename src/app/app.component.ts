@@ -8,6 +8,7 @@ import { DataService } from './api.service';
 })
 export class AppComponent {
   title = 'covid-stats';
+  dataFetched: boolean = false;
   data: any;
   
   constructor(private dataService: DataService) {}
@@ -15,8 +16,9 @@ export class AppComponent {
   ngOnInit() {
     this.dataService.getData()
       .then(data => {
+        console.log("data", data);
         this.data = data;
-        console.log("DATA FETCHED ->", data);
+        if (this.data) this.dataFetched = true;
       })
       .catch(error => console.error('Error:', error));
   }

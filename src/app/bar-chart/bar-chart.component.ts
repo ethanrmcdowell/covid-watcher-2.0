@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -8,25 +8,21 @@ import Chart from 'chart.js/auto';
 })
 export class BarChartComponent {
   public chart: any;
+  @Input() chartData: any;
+  dates: string[] = [];
+  caseNumbers: string[] = [];
+
 
   createChart(){
     this.chart = new Chart("MyChart", {
-      type: 'bar', //this denotes tha type of chart
+      type: 'line', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+        labels: this.dates, 
 	       datasets: [
           {
-            label: "Sales",
-            data: ['467','576', '572', '79', '92',
-								 '574', '573', '576'],
-            backgroundColor: 'blue'
-          },
-          {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-									 '0.00', '538', '541'],
+            label: "Total Cases",
+            data: this.caseNumbers,
             backgroundColor: 'limegreen'
           }  
         ]
@@ -34,11 +30,16 @@ export class BarChartComponent {
       options: {
         aspectRatio:2.5
       }
-      
     });
   }
 
   ngOnInit() {
+    this.dates = Object.keys(this.chartData.cases);;
+    this.caseNumbers = Object.values(this.chartData.cases);
+
+    console.log("dates:", this.dates);
+    console.log("cases:", this.caseNumbers);
+
     this.createChart();
   }
 }
