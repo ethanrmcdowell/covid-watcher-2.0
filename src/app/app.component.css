@@ -4,6 +4,15 @@ body, html {
     padding: 0 !important;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    margin: 5px;
+}
+
 .headerBox {
     width: 100%;
     height: 150px;
@@ -33,9 +42,14 @@ body, html {
 .chartBox {
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 160px;
+  margin-top: 25px;
+}
+
+.buttonBox {
+    margin-top: 160px;
+    display: flex;
+    justify-content: center;
 }

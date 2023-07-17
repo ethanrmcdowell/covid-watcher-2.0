@@ -1,6 +1,33 @@
 <div class="headerBox">
   <h1>COVID Watch 2.0</h1>
-  <p>powered by disease.sh</p>
+  <p><a href="https://disease.sh/" target="_blank">powered by disease.sh</a></p>
+</div>
+
+<div class="buttonBox">
+  <button
+    (click)="selectTab(1)"
+    [class.active]="tabSelected === 1"
+    class="btn btn-success"
+    type="submit"
+  >
+    Global Data
+  </button>
+  <button
+    (click)="selectTab(2)"
+    [class.active]="tabSelected === 2"
+    class="btn btn-success"
+    type="submit"
+  >
+    US Data
+  </button>
+  <button
+    (click)="selectTab(3)"
+    [class.active]="tabSelected === 3"
+    class="btn btn-success"
+    type="submit"
+  >
+    Global Vaccination Data
+  </button>
 </div>
 
 <div *ngIf="this.dataFetched" class="chartBox">

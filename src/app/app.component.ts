@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'covid-stats';
   dataFetched: boolean = false;
   data: any;
+  tabSelected: any = 1;
   
   constructor(private dataService: DataService) {}
 
@@ -21,5 +22,9 @@ export class AppComponent {
         if (this.data) this.dataFetched = true;
       })
       .catch(error => console.error('Error:', error));
+  }
+
+  selectTab(num: any) {
+    this.tabSelected = num;
   }
 }
