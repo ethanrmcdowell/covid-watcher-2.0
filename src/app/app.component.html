@@ -3,6 +3,12 @@
   <p><a href="https://disease.sh/" target="_blank">powered by disease.sh</a></p>
 </div>
 
+<div *ngIf="this.initData" class="casesBox">
+  <h2>Cases: {{ initData.cases | number }}</h2>
+  <h2>Deaths: {{ initData.deaths | number }}</h2>
+  <h2>Recoveries: {{ initData.recovered | number }}</h2>
+</div>
+
 <div class="buttonBox">
   <button
     (click)="selectTab(1)"

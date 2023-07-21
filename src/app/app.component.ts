@@ -6,16 +6,18 @@ import { DataService } from './api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'covid-stats';
-  dataFetched: boolean = false;
+  dataFetched = false;
   data: any;
+  initData: any;
   tabSelected: any = 1;
   apiUrl!: string;
   
   constructor(private dataService: DataService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.onInitData();
     this.getApiUrl();
   }
 
@@ -38,6 +40,15 @@ export class AppComponent {
     } finally {
       this.fetchData();
     }
+  }
+
+  async onInitData() {
+    const initApi = "https://disease.sh/v3/covid-19/all";
+    this.dataService.getData(initApi)
+      .then(data => {
+        this.initData = data;
+        console.log("INIT DATA", data);
+      });
   }
 
   fetchData() {

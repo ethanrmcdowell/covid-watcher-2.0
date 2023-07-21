@@ -6,20 +6,28 @@ import Chart from 'chart.js/auto';
   templateUrl: './us-data.component.html',
   styleUrls: ['./us-data.component.css']
 })
-export class UsDataComponent {
+export class UsDataComponent implements OnInit {
   public chart: any;
   @Input() chartData: any;
   cases!: string;
   recoveries!: string;
   deaths!: string;
 
+  ngOnInit() {
+    console.log("us data ->", this.chartData);
+    this.cases = this.chartData.cases;
+    this.recoveries = this.chartData.recovered;
+    this.deaths = this.chartData.deaths;
+
+    this.createChart();
+  }
 
   createChart(){
     this.chart = new Chart("MyChart", {
       type: 'doughnut',
       data: {
         labels: ['Cases', 'Recoveries', 'Deaths'], 
-	       datasets: [
+        datasets: [
           {
             data: [this.cases, this.recoveries, this.deaths],
             backgroundColor: ['#7A9D54', '#F2EE9D', '#8C3333'],
@@ -30,14 +38,5 @@ export class UsDataComponent {
         responsive: true,
       }
     });
-  }
-
-  ngOnInit() {
-    console.log("us data ->", this.chartData);
-    this.cases = this.chartData.cases;
-    this.recoveries = this.chartData.recovered;
-    this.deaths = this.chartData.deaths;
-
-    this.createChart();
   }
 }

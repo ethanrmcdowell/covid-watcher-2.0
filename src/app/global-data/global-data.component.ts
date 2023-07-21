@@ -6,7 +6,7 @@ import Chart from 'chart.js/auto';
   templateUrl: './global-data.component.html',
   styleUrls: ['./global-data.component.css']
 })
-export class GlobalDataComponent {
+export class GlobalDataComponent implements OnInit {
   public chart: any;
   @Input() chartData: any;
   dates: string[] = [];
@@ -19,7 +19,7 @@ export class GlobalDataComponent {
       data: {
         // dates along x-axis
         labels: this.dates, 
-	       datasets: [
+        datasets: [
           {
             // case numbers along y-axis
             label: "Total Cases",
@@ -35,7 +35,7 @@ export class GlobalDataComponent {
   }
 
   ngOnInit() {
-    this.dates = Object.keys(this.chartData.cases);;
+    this.dates = Object.keys(this.chartData.cases);
     this.caseNumbers = Object.values(this.chartData.cases);
 
     console.log("global data ->", this.chartData);
