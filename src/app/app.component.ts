@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   async ngOnInit() {
-    await this.onInitData();
+     this.onInitData();
     this.getApiUrl();
   }
 
@@ -44,19 +44,19 @@ export class AppComponent implements OnInit {
 
   async onInitData() {
     const initApi = "https://disease.sh/v3/covid-19/all";
-    this.dataService.getData(initApi)
-      .then(data => {
-        this.initData = data;
-        console.log("INIT DATA", data);
-      });
+    try {
+      this.initData = await this.dataService.getData(initApi);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 
-  fetchData() {
-    this.dataService.getData(this.apiUrl)
-      .then(data => {
-        this.data = data;
-        if (this.data) this.dataFetched = true;
-      })
-      .catch(error => console.error('Error:', error));
+  async fetchData() {
+    try {
+      this.data = await this.dataService.getData(this.apiUrl);
+      this.dataFetched = true;
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 }
