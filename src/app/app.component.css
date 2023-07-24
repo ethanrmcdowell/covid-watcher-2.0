@@ -45,7 +45,8 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 25px;
+  /* margin-top: 25px; */
+  margin-top: 160px;
 }
 
 .buttonBox {

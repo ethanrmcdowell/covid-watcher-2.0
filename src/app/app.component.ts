@@ -43,12 +43,12 @@ export class AppComponent implements OnInit {
   }
 
   async onInitData() {
-    const initApi = "https://disease.sh/v3/covid-19/all";
-    try {
-      this.initData = await this.dataService.getData(initApi);
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    // const initApi = "https://disease.sh/v3/covid-19/all";
+    // try {
+    //   this.initData = await this.dataService.getData(initApi);
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
   }
 
   async fetchData() {
